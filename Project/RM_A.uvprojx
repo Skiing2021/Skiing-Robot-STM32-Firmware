@@ -891,6 +891,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\driver\buzzer.c</FilePath>
             </File>
+            <File>
+              <FileName>usart2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\driver\usart2.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

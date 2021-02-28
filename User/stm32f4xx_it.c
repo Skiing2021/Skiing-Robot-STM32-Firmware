@@ -32,6 +32,7 @@
 #include "stm32f4xx.h"
 #include "main.h"
 #include "can.h"
+#include "Control_task.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -146,6 +147,20 @@ void SysTick_Handler(void)
 {
   TimingDelay_Decrement();
 }
+
+extern Ski_Control_t ski_control;
+void USART2_IRQHandler(void)
+{
+	if(USART_GetITStatus(USART2, USART_IT_RXNE ) != RESET)
+	{		
+	  //Rxflag=1;		
+		uint8_t yaw_gyro_rx_tmp = USART_ReceiveData(USART2);
+		if(yaw_gyro_rx_tmp > 0){
+			ski_control.yaw_gyro_rx = yaw_gyro_rx_tmp - 128;
+		}
+				uint8_t tmp = USART_ReceiveData(USART2);
+	}
+}	
 
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */

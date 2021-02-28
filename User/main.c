@@ -39,6 +39,7 @@
 #include "INS_Task.h"
 #include "buzzer.h"
 #include "control_task.h"
+#include "usart2.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -76,6 +77,7 @@ int main(void)
   TIM8_Init(20000, 180);
 	//Timer for Control Task, 1ms.
 	TIM7_Init();
+	USART2_Init();
 	
 	OLED_Init();
 	OLED_ShowString(0,0,(uint8_t*)"Driver Init OK!",16,1);  
